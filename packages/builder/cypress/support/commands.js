@@ -750,7 +750,7 @@ Cypress.Commands.add("navigateToFrontend", () => {
       cy.reload()
     }
   })
-  cy.get(".spectrum-Search", { timeout: 2000 }).type("/")
+  cy.get(".spectrum-Search", { timeout: 20000 }).type("/")
   cy.get(".nav-item", { timeout: 2000 }).contains("home").click({ force: true })
 })
 
