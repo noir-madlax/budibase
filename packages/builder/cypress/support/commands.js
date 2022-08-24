@@ -742,7 +742,14 @@ Cypress.Commands.add("deleteAllScreens", () => {
 Cypress.Commands.add("navigateToFrontend", () => {
   // Clicks on Design tab and then the Home nav item
   cy.wait(500)
+  cy.intercept("**/preview").as("preview")
   cy.contains("Design").click()
+  cy.wait("@preview")
+  cy.get("@preview").then(res => {
+    if (res.statusCode != 200) {
+      cy.reload()
+    }
+  })
   cy.get(".spectrum-Search", { timeout: 2000 }).type("/")
   cy.get(".nav-item", { timeout: 2000 }).contains("home").click({ force: true })
 })
