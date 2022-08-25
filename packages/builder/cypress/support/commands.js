@@ -448,10 +448,7 @@ Cypress.Commands.add("createTable", (tableName, initialTable) => {
         .contains("Continue")
         .click({ force: true })
     })
-  cy.get(".spectrum-Modal", { timeout: 10000 }).should(
-    "not.contain",
-    "Add data source"
-  )
+  cy.get(".spectrum-Modal").contains("Create Table", { timeout: 10000 })
   cy.get(".spectrum-Modal", { timeout: 2000 }).within(() => {
     cy.get("input", { timeout: 2000 }).first().type(tableName).blur()
     cy.get(".spectrum-ButtonGroup").contains("Create").click()
