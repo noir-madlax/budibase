@@ -160,7 +160,7 @@ services:
     ## If set to "-", storageClassName: "", which disables dynamic provisioning
     ## If undefined (the default) or set to null, no storageClassName spec is
     ##   set, choosing the default provisioner.
-    storageClass: ""
+    storageClass: nfs-storage
 
   objectStore:
     minio: true
@@ -176,7 +176,7 @@ services:
     ## If set to "-", storageClassName: "", which disables dynamic provisioning
     ## If undefined (the default) or set to null, no storageClassName spec is
     ##   set, choosing the default provisioner.
-    storageClass: ""
+    storageClass: nfs-storage
 
 # Override values in couchDB subchart
 couchdb:
